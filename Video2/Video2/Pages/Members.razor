@@ -1,0 +1,111 @@
+﻿@page "/Members"
+@using Video2.Data
+@inject MemberServices MemSer
+
+
+
+@if (CheckSubmit)
+{
+	<MudAlert Severity="Severity.Success">Data added successfully...!</MudAlert>
+}
+
+<MudCard Elevation="25">
+	<MudCardHeader>
+		<CardHeaderContent>
+			<MudText Typo="Typo.h6">Members</MudText>
+		</CardHeaderContent>
+	</MudCardHeader>
+	<MudCardContent>
+		<MudTextField @bind-Value="element.Cname" Label="Name" Variant="Variant.Text" Margin="Margin.Normal"></MudTextField>
+		<MudTextField @bind-Value="element.NIC" Label="NIC" Variant="Variant.Text" Margin="Margin.Normal"></MudTextField>
+		<MudTextField @bind-Value="element.mobile" Label="Mobile" Variant="Variant.Text" Margin="Margin.Normal"></MudTextField>
+		<br />
+		<MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="InsertMember">Save Member</MudButton>
+	</MudCardContent>
+</MudCard>
+
+
+<br />
+<br />
+
+@if (MemberList == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+
+
+	<MudGrid>
+		
+			<MudItem xs="1">
+			<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">No</MudPaper>
+			</MudItem>
+			<MudItem xs="3">
+				<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Name</MudPaper>
+			</MudItem>
+			<MudItem xs="3">
+				<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">NIC</MudPaper>
+			</MudItem>
+		<MudItem xs="3">
+			<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Mobile</MudPaper>
+		</MudItem>
+		<MudItem xs="2">
+			<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Actions</MudPaper>
+		</MudItem>
+		@foreach (var std in MemberList)
+		{
+			<MudItem xs="1">
+				<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@std.Cid</MudPaper>
+			</MudItem>
+			<MudItem xs="3">
+				<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@std.Cname</MudPaper>
+			</MudItem>
+			<MudItem xs="3">
+				<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@std.NIC</MudPaper>
+			</MudItem>
+			<MudItem xs="3">
+				<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@std.mobile</MudPaper>
+			</MudItem>
+			<MudItem xs="2" Class="d-flex align-center justify-center mud-width-full py-5">
+				
+				<MudFab  Color="Color.Secondary" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" OnClick="(() => Delete(std.Cid))"/>
+			</MudItem>
+		
+		}
+		
+	</MudGrid>
+}
+
+
+
+@code {
+
+
+	public MemberModel element = new MemberModel();
+
+	public List<MemberModel> MemberList;
+
+	public bool CheckSubmit = false;
+
+	protected override void OnInitialized()
+	{
+		MemberList = MemSer.GetMemberList();
+	}
+
+	protected void InsertMember()
+	{
+		MemSer.SaveMember(element);
+		CheckSubmit = true;
+		element = new MemberModel();
+		MemberList = MemSer.GetMemberList();
+	}
+
+	private void Delete(int id)
+
+	{
+		MemSer.DeleteMember(id);
+			
+		MemberList = MemSer.GetMemberList();
+	}
+}

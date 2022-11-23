@@ -1,0 +1,94 @@
+﻿@page "/"
+@inject NavigationManager NavManager
+
+<PageTitle>Index</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Hello, world!</MudText>
+<MudText Class="mb-8">Welcome to your new app!</MudText>
+
+<MudGrid Spacing="@spacing" Justify="Justify.Center">
+	<MudItem>
+		<MudCard>
+			<MudCardMedia Image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit" Height="200" />
+
+			<MudCardActions>
+				<MudButton OnClick="@Members1" Variant="Variant.Text" Color="Color.Primary" Class="border-dashed border-2 mud-border-primary pa-4">
+					<MudCardContent>
+						<MudText Typo="Typo.h5">Members</MudText>
+
+					</MudCardContent>
+				</MudButton>
+
+			</MudCardActions>
+		</MudCard>
+	</MudItem>
+	<MudItem>
+		<MudCard>
+			<MudCardMedia Image="https://images.unsplash.com/photo-1493804714600-6edb1cd93080?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit" Height="200" />
+
+			<MudCardActions>
+				<MudButton OnClick="@Videos1" Variant="Variant.Text" Color="Color.Primary" Class="border-dashed border-2 mud-border-primary pa-4">
+					<MudCardContent>
+						<MudText Typo="Typo.h5">Videos</MudText>
+
+					</MudCardContent>
+				</MudButton>
+
+			</MudCardActions>
+		</MudCard>
+	</MudItem>
+	<MudItem>
+		<MudCard>
+			<MudCardMedia Image="https://images.unsplash.com/photo-1576707769315-01a7474de445?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Nzc1NTAwMQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" Height="200" />
+			
+			<MudCardActions>
+				<MudButton OnClick="@Reserved1" Variant="Variant.Text" Color="Color.Primary" Class="border-dashed border-2 mud-border-primary pa-4">
+					<MudCardContent>
+						<MudText Typo="Typo.h5">Reserve</MudText>
+			
+					</MudCardContent></MudButton>
+				
+			</MudCardActions>
+		</MudCard>
+	</MudItem>
+	<MudItem>
+		<MudCard>
+			<MudCardMedia Image="https://images.unsplash.com/photo-1561570541-aaba21a3ecf0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0NDc2OTczOQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" Height="200" />
+
+			<MudCardActions>
+				<MudButton OnClick="@Lend1" Variant="Variant.Text" Color="Color.Primary" Class="border-dashed border-2 mud-border-primary pa-4">
+					<MudCardContent>
+						<MudText Typo="Typo.h5">Lend</MudText>
+
+					</MudCardContent>
+				</MudButton>
+
+			</MudCardActions>
+		</MudCard>
+	</MudItem>
+</MudGrid>
+
+
+
+@code {
+	public int spacing { get; set; } = 2;
+
+	protected void Members1()
+	{
+		NavManager.NavigateTo("/Members");
+	}
+
+	protected void Videos1()
+	{
+		NavManager.NavigateTo("/Videos");
+	}
+
+	protected void Reserved1()
+	{
+		NavManager.NavigateTo("/Reserved");
+	}
+	protected void Lend1()
+	{
+		NavManager.NavigateTo("/Lend");
+	}
+}

@@ -1,0 +1,117 @@
+﻿@page "/Videos"
+
+@using Video2.Data
+
+@inject VideoServices VidSer
+
+
+
+@if (CheckSubmit)
+{
+	<MudAlert Severity="Severity.Success">Data added successfully...!</MudAlert>
+}
+
+<MudCard Elevation="25">
+	<MudCardHeader>
+		<CardHeaderContent>
+			<MudText Typo="Typo.h6">Videos</MudText>
+		</CardHeaderContent>
+	</MudCardHeader>
+	<MudCardContent>
+		<MudTextField @bind-Value="velement.Vname" Label="Video Name" Variant="Variant.Text" Margin="Margin.Normal"></MudTextField>
+		
+		<br />
+		<MudButton Variant="Variant.Filled" Color="Color.Tertiary" OnClick="InsertMember">Add Video</MudButton>
+	</MudCardContent>
+</MudCard>
+
+<br />
+<br />
+
+@if (VideoList == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+
+
+	<MudGrid>
+
+		<MudItem xs="2">
+			<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">No</MudPaper>
+		</MudItem>
+		<MudItem xs="6">
+			<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Video Name</MudPaper>
+		</MudItem>
+		@* <MudItem xs="3"> *@
+		@* 	<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Lend Id</MudPaper> *@
+		@* </MudItem> *@
+		@* <MudItem xs="3"> *@
+		@* 	<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Reserved Id</MudPaper> *@
+		@* </MudItem> *@
+		<MudItem xs="4">
+			<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Actions</MudPaper>
+		</MudItem>
+		@foreach (var vstd in VideoList)
+		{
+			<MudItem xs="2">
+				<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@vstd.Vid</MudPaper>
+			</MudItem>
+			<MudItem xs="6">
+				<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@vstd.Vname</MudPaper>
+			</MudItem>
+			@* <MudItem xs="3"> *@
+			@* 	<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@if(@vstd.LendLid == null){ *@
+			@* 		                                                                         var empty = "none"; *@
+			@* 		                                                                         empty; *@
+			@* 	                                                                         }else{ *@
+			@* 		@vstd.LendLid; *@
+			@* 		} *@
+			@* 	</MudPaper> *@
+			@* </MudItem> *@
+			@* <MudItem xs="3"> *@
+			@* 	<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@vstd.ReserveRid</MudPaper> *@
+			@* </MudItem> *@
+			<MudItem xs="4" Class="d-flex align-center justify-center mud-width-full py-5">
+
+				<MudFab Color="Color.Secondary" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" OnClick="(() => Delete(vstd.Vid))" />
+			</MudItem>
+
+		}
+
+	</MudGrid>
+}
+
+
+
+@code {
+
+
+	public VideoModel velement = new VideoModel();
+
+	public List<VideoModel> VideoList;
+
+	public bool CheckSubmit = false;
+
+	protected override void OnInitialized()
+	{
+		VideoList = VidSer.GetVideoList();
+	}
+
+	protected void InsertMember()
+	{
+		VidSer.SaveVideo(velement);
+		CheckSubmit = true;
+		velement = new VideoModel();
+		VideoList = VidSer.GetVideoList();
+	}
+
+	private void Delete(int id)
+
+	{
+		VidSer.DeleteVideo(id);
+			
+		VideoList = VidSer.GetVideoList();
+	}
+}

@@ -1,0 +1,107 @@
+﻿@page "/Lend"
+@using Video2.Data
+@using System.Data.SqlClient
+
+@inject LendServices LendSer
+
+
+
+@if (CheckSubmit ==true)
+{
+	<MudAlert Severity="Severity.Success">Video is available..!</MudAlert>
+}
+
+
+
+<MudCard Elevation="25">
+	<MudCardHeader>
+		<CardHeaderContent>
+			<MudText Typo="Typo.h6">Lending</MudText>
+		</CardHeaderContent>
+	</MudCardHeader>
+	<MudCardContent>
+		<MudTextField @bind-Value="element.Cid" Label="Member ID" Variant="Variant.Text" Margin="Margin.Normal"></MudTextField>
+		<MudTextField @bind-Value="velement.Vid" Label="Video ID" Variant="Variant.Text" Margin="Margin.Normal"></MudTextField>
+		<br />
+		  <MudButton Variant="Variant.Filled" Color="Color.Warning" OnClick="(() => CheckV(velement.Vid))">Check</MudButton> 
+		<MudButton Variant="Variant.Filled" Color="Color.Info" OnClick="(() => LendV(element.Cid,velement.Vid))">Lend</MudButton>
+
+	</MudCardContent>
+</MudCard>
+
+
+
+<MudGrid>
+
+	<MudItem xs="2">
+		<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Video ID</MudPaper>
+	</MudItem>
+	<MudItem xs="4">
+		<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Video Name</MudPaper>
+	</MudItem>
+	<MudItem xs="4">
+		<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Lend ID</MudPaper>
+	</MudItem>
+	<MudItem xs="2">
+		<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">Actions</MudPaper>
+	</MudItem>
+	@foreach (var vstd in VideoList)
+	{
+		<MudItem xs="2">
+			<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@vstd.Vid</MudPaper>
+		</MudItem>
+		<MudItem xs="4">
+			<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@vstd.Vname</MudPaper>
+		</MudItem>
+		<MudItem xs="4">
+			<MudPaper Class="d-flex align-center justify-center mud-width-full py-5">@vstd.LendLid</MudPaper>
+		</MudItem>
+
+		<MudItem xs="2" Class="d-flex align-center justify-center mud-width-full py-5">
+
+			<MudFab Color="Color.Secondary" Icon="@Icons.Material.Filled.Delete" Size="Size.Small" IconSize="Size.Small" OnClick="(() => DeleteLend(vstd.Vid))" />
+		</MudItem>
+
+	}
+
+	
+</MudGrid>
+
+
+@code {
+
+	public MemberModel element = new MemberModel();
+
+	public VideoModel velement = new VideoModel();
+
+	public List<VideoModel> VideoList;
+
+	public bool CheckSubmit ;
+
+	protected override void OnInitialized()
+	{
+		VideoList = LendSer.GetLendList();
+	}
+	
+	 private void CheckV( int vid)
+	
+	 {
+	 	CheckSubmit=LendSer.CheckVideo(vid);
+	
+	 }
+	private void LendV(int cid,int vid)
+	
+	{
+		LendSer.LendVideo(cid,vid);
+		VideoList = LendSer.GetLendList();
+	}
+
+	private void DeleteLend(int id)
+	
+	{
+		LendSer.DeleteLendVideo(id);
+	
+		VideoList = LendSer.GetLendList();
+	}
+
+}

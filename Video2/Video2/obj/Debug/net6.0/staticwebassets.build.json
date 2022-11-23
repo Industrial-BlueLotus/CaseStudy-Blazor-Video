@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "XXum3Ka5YF1rZS8zg6M3leDJZFlN2RHXJCDH+mthzMA=",
+  "Source": "Video2",
+  "BasePath": "_content/Video2",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Video2\\wwwroot",
+      "Source": "Video2",
+      "ContentRoot": "D:\\Industrial\\Assignment\\Video2\\Video2\\wwwroot\\",
+      "BasePath": "_content/Video2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\danul\\.nuget\\packages\\mudblazor\\6.0.17\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\danul\\.nuget\\packages\\mudblazor\\6.0.17\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\danul\\.nuget\\packages\\mudblazor\\6.0.17\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\danul\\.nuget\\packages\\mudblazor\\6.0.17\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\danul\\.nuget\\packages\\mudblazor\\6.0.17\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\danul\\.nuget\\packages\\mudblazor\\6.0.17\\staticwebassets\\MudBlazor.min.js"
+    },
+    {
+      "Identity": "D:\\Industrial\\Assignment\\Video2\\Video2\\wwwroot\\favicon.ico",
+      "SourceId": "Video2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Industrial\\Assignment\\Video2\\Video2\\wwwroot\\",
+      "BasePath": "_content/Video2",
+      "RelativePath": "favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    }
+  ]
+}
