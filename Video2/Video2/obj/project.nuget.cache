@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ha0mrMz13PgKEe/47+jyYbKiVBM1JGqIHuRAIDfsix87cTKkCk8CDGo/mUG2jvt3S7qUR0xHvdSqk3z9lpW/pQ==",
+  "dgSpecHash": "kt/rSKi+I3zWpF8OM7/D+BEnOmyA8ElnB2vg1D+hO5B/+e6VOGZVrBcaw8Ew+Kn6DR5ARFbgSxIQkwMCUoKlrQ==",
   "success": true,
-  "projectFilePath": "D:\\Industrial\\Assignment\\Video2\\Video2\\Video2.csproj",
+  "projectFilePath": "D:\\Industrial\\Blue Lotus 360\\Assignment\\Blazor\\Video2\\Video2\\Video2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danul\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\danul\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
