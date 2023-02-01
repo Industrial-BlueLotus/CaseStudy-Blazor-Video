@@ -4032,11 +4032,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Industrial\\Assignment\\Video2\\Video2\\Video2.csproj",
+      "projectUniqueName": "D:\\Industrial\\Blue Lotus 360\\Assignment\\Blazor\\Video2\\Video2\\Video2.csproj",
       "projectName": "Video2",
-      "projectPath": "D:\\Industrial\\Assignment\\Video2\\Video2\\Video2.csproj",
+      "projectPath": "D:\\Industrial\\Blue Lotus 360\\Assignment\\Blazor\\Video2\\Video2\\Video2.csproj",
       "packagesPath": "C:\\Users\\danul\\.nuget\\packages\\",
-      "outputPath": "D:\\Industrial\\Assignment\\Video2\\Video2\\obj\\",
+      "outputPath": "D:\\Industrial\\Blue Lotus 360\\Assignment\\Blazor\\Video2\\Video2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4052,7 +4052,8 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.telerik.com/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -4112,7 +4113,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-rc.2.22477.23\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
